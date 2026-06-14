@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bipin Pal — Full-Stack Developer & AI/ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --navy:   #0B2255;
+  --blue:   #1A56DB;
+  --sky:    #3B82F6;
+  --dark:   #0F172A;
+  --body:   #1E293B;
+  --mid:    #475569;
+  --light:  #64748B;
+  --rule:   #CBD5E1;
+  --bg:     #F8FAFF;
+  --white:  #FFFFFF;
+}
+
+/* ── PRINT SETUP ─────────────────────────────────────────────── */
+@page{
+  size: letter portrait;
+  margin: 0.36in 0.42in 0.36in 0.42in;
+}
+@media print{
+  html,body{width:100%;height:100%;}
+  .hint{display:none;}
+}
+
+/* ── SCREEN WRAPPER ──────────────────────────────────────────── */
+html{background:#e2e8f0;}
+body{
+  font-family:'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
+  font-size:8.6pt;
+  line-height:1.45;
+  color:var(--body);
+  background:var(--white);
+  width:8.5in;
+  min-height:11in;
+  margin:0.3in auto;
+  box-shadow:0 4px 40px rgba(0,0,0,0.18);
+}
+
+/* ── PRINT HINT ──────────────────────────────────────────────── */
+.hint{
+  position:fixed;top:12px;right:12px;z-index:99;
+  background:var(--blue);color:#fff;
+  padding:7px 14px;border-radius:6px;
+  font-size:11px;font-weight:600;
+  cursor:pointer;font-family:'Inter',sans-serif;
+  box-shadow:0 2px 8px rgba(26,86,219,0.4);
+  letter-spacing:0.3px;
+}
+.hint:hover{background:#1347b8;}
+
+/* ═══════════════════════════════════════════════════════════════
+   HEADER
+════════════════════════════════════════════════════════════════ */
+.header{
+  background:linear-gradient(118deg, var(--navy) 0%, #1a3d8a 55%, var(--blue) 100%);
+  padding:0.19in 0.30in 0.17in;
+  position:relative;
+  overflow:hidden;
+}
+/* subtle grid texture */
+.header::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:20px 20px;
+}
+/* bottom accent bar */
+.header::after{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,#60A5FA,#A78BFA,#34D399);
+}
+
+.header-inner{position:relative;}
+
+.name{
+  font-family:'Raleway','Arial Black',sans-serif;
+  font-size:28pt;
+  font-weight:900;
+  letter-spacing:-0.5px;
+  color:#ffffff;
+  line-height:1;
+}
+.name span{color:#93C5FD;}
+
+.tagline{
+  margin-top:4px;
+  font-size:8.5pt;
+  font-weight:500;
+  color:rgba(255,255,255,0.80);
+  letter-spacing:0.6px;
+}
+.tagline .sep{color:rgba(255,255,255,0.35);margin:0 5px;}
+
+.contact-strip{
+  display:flex;
+  flex-wrap:wrap;
+  gap:2px 18px;
+  margin-top:8px;
+  font-size:7.8pt;
+  color:rgba(255,255,255,0.82);
+}
+.contact-strip a{color:rgba(255,255,255,0.90);text-decoration:none;}
+.contact-strip a:hover{color:#fff;}
+.ci{display:flex;align-items:center;gap:4px;}
+.ci svg{flex-shrink:0;opacity:.75;}
+
+/* ═══════════════════════════════════════════════════════════════
+   BODY
+════════════════════════════════════════════════════════════════ */
+.body{padding:0.13in 0.30in 0.10in;}
+
+/* ─ SECTION ─────────────────────────────────────────────────── */
+.sec{margin-bottom:0.085in;}
+.sec-head{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:5px;
+}
+.sec-label{
+  font-size:7.2pt;
+  font-weight:700;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  color:var(--blue);
+  white-space:nowrap;
+}
+.sec-rule{
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,var(--blue) 0%,var(--rule) 80%);
+}
+
+/* ─ SUMMARY ─────────────────────────────────────────────────── */
+.summary{
+  font-size:8.4pt;
+  line-height:1.52;
+  color:var(--body);
+  text-align:justify;
+}
+.summary b{color:var(--dark);font-weight:600;}
+
+/* ─ SKILLS ──────────────────────────────────────────────────── */
+.skills-grid{
+  display:grid;
+  grid-template-columns:75px 1fr;
+  row-gap:2.5px;
+  column-gap:8px;
+}
+.sk-label{
+  font-size:7.8pt;
+  font-weight:700;
+  color:var(--mid);
+  padding-top:1px;
+}
+.sk-val{
+  font-size:8pt;
+  color:var(--body);
+  line-height:1.4;
+}
+.sk-val .tag{
+  display:inline-block;
+  background:#EBF2FF;
+  color:#1A56DB;
+  border-radius:3px;
+  padding:0 4px;
+  font-size:7.3pt;
+  font-weight:500;
+  margin:0 1px 1px 0;
+  line-height:1.5;
+}
+.sk-val .tag.ml{background:#F0FDF4;color:#15803D;}
+.sk-val .tag.dv{background:#FEF3C7;color:#92400E;}
+.sk-val .tag.tool{background:#FDF4FF;color:#7E22CE;}
+
+/* ─ ENTRY (job/project) ─────────────────────────────────────── */
+.entry{margin-bottom:5px;}
+.entry:last-child{margin-bottom:0;}
+.entry-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:8px;
+}
+.entry-title{font-weight:700;font-size:8.8pt;color:var(--dark);}
+.entry-co{font-weight:500;color:var(--mid);font-size:8.5pt;}
+.entry-date{
+  font-size:7.8pt;
+  color:var(--mid);
+  font-style:italic;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.entry-sub{
+  font-size:7.8pt;
+  color:var(--mid);
+  font-style:italic;
+  margin-bottom:2px;
+}
+.entry-tech{
+  font-size:7.5pt;
+  color:var(--blue);
+  font-weight:600;
+  margin-bottom:3px;
+}
+
+/* ─ BULLETS ─────────────────────────────────────────────────── */
+ul{list-style:none;padding:0;}
+li{
+  font-size:8.2pt;
+  line-height:1.43;
+  padding-left:11px;
+  position:relative;
+  margin-bottom:1.5px;
+  color:var(--body);
+}
+li::before{
+  content:'▸';
+  position:absolute;left:0;top:0;
+  color:var(--sky);
+  font-size:7pt;
+}
+li b{font-weight:600;color:var(--dark);}
+li .num{color:var(--blue);font-weight:700;}
+
+/* ─ CERTS ───────────────────────────────────────────────────── */
+.certs-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5px 16px;
+}
+.cert-item{
+  font-size:7.9pt;
+  padding-left:11px;
+  position:relative;
+  color:var(--body);
+  line-height:1.4;
+}
+.cert-item::before{
+  content:'▸';
+  position:absolute;left:0;
+  color:var(--sky);font-size:7pt;
+}
+.cert-item b{font-weight:600;}
+.cert-item span{color:var(--mid);}
+
+/* ─ EDU ─────────────────────────────────────────────────────── */
+.edu-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:8px;
+  margin-bottom:1.5px;
+}
+.edu-name{font-weight:700;font-size:8.5pt;color:var(--dark);}
+.edu-detail{font-size:7.8pt;color:var(--mid);}
+.edu-sub{font-size:7.8pt;color:var(--mid);font-style:italic;padding-left:0;}
+
+/* ─ DIVIDER between exp rows ────────────────────────────────── */
+.entry-divider{
+  border:none;
+  border-top:0.5px dashed var(--rule);
+  margin:4px 0;
+}
+
+/* ─ LINK ─────────────────────────────────────────────────────── */
+a{color:var(--blue);text-decoration:none;}
+</style>
+</head>
+<body>
+
+<button class="hint" onclick="window.print()">⬇ Save as PDF (Ctrl+P)</button>
+
+<!-- ═══════ HEADER ═══════ -->
+<div class="header">
+  <div class="header-inner">
+
+    <div class="name">BIPIN <span>PAL</span></div>
+
+    <div class="tagline">
+      Full-Stack Developer
+      <span class="sep">|</span>
+      AI / ML Engineer
+      <span class="sep">|</span>
+      GenAI &amp; LLM Specialist
+      <span class="sep">|</span>
+      MERN Stack Developer
+      <span class="sep">|</span>
+      Software Engineer
+    </div>
+
+    <div class="contact-strip">
+      <div class="ci">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.03 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+        +91 9325764260
+      </div>
+      <div class="ci">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:palbipinkumar9325@gmail.com">palbipinkumar9325@gmail.com</a>
+      </div>
+      <div class="ci">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="https://linkedin.com/in/bipinpal9325">linkedin.com/in/bipinpal9325</a>
+      </div>
+      <div class="ci">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        <a href="https://github.com/bipinpal9325">github.com/bipinpal9325</a>
+      </div>
+      <div class="ci">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Prayagraj, India
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════ BODY ═══════ -->
+<div class="body">
+
+  <!-- SUMMARY -->
+  <div class="sec">
+    <div class="sec-head"><span class="sec-label">Professional Summary</span><div class="sec-rule"></div></div>
+    <p class="summary">
+      Results-driven <b>Full-Stack Developer &amp; AI/ML Engineer</b> with <b>1+ year</b> of hands-on internship experience delivering production-grade <b>MERN stack</b> web applications and <b>GenAI-powered</b> platforms used by <b>500+ users</b>. Triple-certified by <b>Anthropic</b> (Claude API, Vertex AI, Claude Code). Skilled in <b>REST API design</b>, <b>NLP pipelines</b>, <b>CI/CD</b> automation, cloud deployment (Vercel, Render), and <b>Agile/Scrum</b> workflows. Passionate about building scalable, AI-driven, user-centered software with clean, maintainable code and measurable business impact.
+    </p>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="sec">
+    <div class="sec-head"><span class="sec-label">Technical Skills</span><div class="sec-rule"></div></div>
+    <div class="skills-grid">
+
+      <span class="sk-label">Languages</span>
+      <span class="sk-val">
+        <span class="tag">Python</span><span class="tag">JavaScript ES6+</span><span class="tag">TypeScript</span><span class="tag">C / C++</span><span class="tag">Java</span>
+      </span>
+
+      <span class="sk-label">Frontend</span>
+      <span class="sk-val">
+        <span class="tag">React.js</span><span class="tag">React 18</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Tailwind CSS</span><span class="tag">Bootstrap</span><span class="tag">Vite</span><span class="tag">Framer Motion</span><span class="tag">EJS.js</span>
+      </span>
+
+      <span class="sk-label">Backend</span>
+      <span class="sk-val">
+        <span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">Flask</span><span class="tag">Flask-CORS</span><span class="tag">REST APIs</span><span class="tag">Socket.IO</span><span class="tag">Microservices</span><span class="tag">JWT</span>
+      </span>
+
+      <span class="sk-label">Database</span>
+      <span class="sk-val">
+        <span class="tag">MongoDB</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Neon DB</span>
+      </span>
+
+      <span class="sk-label">AI &amp; ML</span>
+      <span class="sk-val">
+        <span class="tag ml">LangChain</span><span class="tag ml">TensorFlow</span><span class="tag ml">NLP</span><span class="tag ml">GenAI</span><span class="tag ml">LLMs</span><span class="tag ml">GPT-4.1</span><span class="tag ml">Claude API</span><span class="tag ml">RAG</span><span class="tag ml">Ollama</span><span class="tag ml">OpenCV</span><span class="tag ml">Pandas</span><span class="tag ml">NumPy</span>
+      </span>
+
+      <span class="sk-label">DevOps</span>
+      <span class="sk-val">
+        <span class="tag dv">Git &amp; GitHub</span><span class="tag dv">CI/CD</span><span class="tag dv">GitHub Actions</span><span class="tag dv">Docker</span><span class="tag dv">Vercel</span><span class="tag dv">Render</span><span class="tag dv">Linux</span><span class="tag dv">Cloudinary</span>
+      </span>
+
+      <span class="sk-label">Tools</span>
+      <span class="sk-val">
+        <span class="tag tool">Clerk Auth</span><span class="tag tool">Stripe</span><span class="tag tool">Postman</span><span class="tag tool">Agile/Scrum</span><span class="tag tool">SDLC</span><span class="tag tool">CORS</span><span class="tag tool">Problem-Solving</span>
+      </span>
+
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-label">Professional Experience</span><div class="sec-rule"></div></div>
+  <div class="entry">
+    <div class="entry-top">
+      <span>
+        <span class="entry-title"
+              onclick="window.open('https://drive.google.com/file/d/1LtsxW4VqwLic-sV1FvL0eF6RMWykqXWm/view?usp=sharing', '_blank')"
+              style="cursor: pointer;"
+              onmouseover="this.style.textDecoration='underline'; this.style.color='#2563eb';"
+              onmouseout="this.style.textDecoration='none'; this.style.color='inherit';">
+          Web Developer Intern
+        </span>&nbsp;&nbsp;<span class="entry-co">— Bharat-Intern</span>
+      </span>
+      <span class="entry-date">Oct 2025 – Present</span>
+    </div>
+    <div class="entry-sub">Prayagraj, India &nbsp;·&nbsp; Astro · REST APIs · GitHub Actions · Agile/Scrum · Postman</div>
+    <ul>
+      <li>Engineered <b>8+ responsive, accessible UI components</b> using the Astro framework, improving page load speed by <span class="num">35%</span> and cutting user bounce rate across the production platform.</li>
+      <li>Integrated <b>4 third-party REST APIs</b> via Postman, enabling real-time data sync and reducing manual data-entry errors by <span class="num">60%</span>; documented API endpoints using OpenAPI standards.</li>
+      <li>Configured <b>CI/CD pipeline</b> with GitHub Actions for automated testing &amp; deployment — reduced release cycle by <span class="num">40%</span> with <b>zero-downtime deploys</b>; maintained <span class="num">99.5% uptime</span> over 3+ months.</li>
+      <li>Collaborated in an <b>Agile/Scrum team of 6</b>, driving sprint planning, daily stand-ups &amp; code reviews, improving team sprint velocity by <span class="num">20%</span>.</li>
+    </ul>
+  </div>
+</div>
+
+  <!-- PROJECTS -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-label">Projects</span><div class="sec-rule"></div></div>
+
+  <div class="entry">
+    <div class="entry-top">
+      <span class="entry-title"
+            onclick="window.open('https://github.com/bipinpal9325/Intellexa.ai.git', '_blank')"
+            style="cursor: pointer;"
+            onmouseover="this.style.textDecoration='underline'; this.style.color='#2563eb';"
+            onmouseout="this.style.textDecoration='none'; this.style.color='inherit';">
+        Intellexa.ai — Full-Stack AI SaaS Platform
+      </span>
+      <span class="entry-date">2025 &nbsp;·&nbsp; <a href="https://github.com/bipinpal9325/Intellexa.ai.git" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span>
+    </div>
+    <div class="entry-tech">React.js · Tailwind CSS · Node.js · Express.js · PostgreSQL (Neon) · MongoDB · Clerk Auth · Stripe · Render · CI/CD</div>
+    <ul>
+      <li>Architected &amp; deployed a multi-tool AI SaaS with <span class="num">500+ MAU</span> and <span class="num">99.9% uptime</span>; <b>Clerk JWT auth</b> (zero breaches) + <b>Stripe billing</b> processing <span class="num">100+ transactions/month</span>.</li>
+      <li>Optimised Neon PostgreSQL query performance by <span class="num">40%</span> via indexing &amp; connection pooling; <b>15+ REST API endpoints</b> handling <span class="num">10,000+ calls/month</span> at sub-200ms response time.</li>
+    </ul>
+  </div>
+
+  <hr class="entry-divider">
+
+  <div class="entry">
+    <div class="entry-top">
+      <span class="entry-title"
+            onclick="window.open('https://github.com/bipinpal9325/MediPredict.ai.git', '_blank')"
+            style="cursor: pointer;"
+            onmouseover="this.style.textDecoration='underline'; this.style.color='#2563eb';"
+            onmouseout="this.style.textDecoration='none'; this.style.color='inherit';">
+        MediPrediction.ai — AI Medical Diagnostic Engine
+      </span>
+      <span class="entry-date">2025 &nbsp;·&nbsp; <a href="https://github.com/bipinpal9325/MediPrediction.ai.git" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span>
+    </div>
+    <div class="entry-tech">React 18 · TypeScript · Vite · Flask · NLP Pipelines · Clerk Auth · Framer Motion · Vercel · CI/CD</div>
+    <ul>
+      <li>Built AI diagnostic system with <span class="num">87% accuracy</span> across <span class="num">10+ conditions</span>; <span class="num">1,000+ symptom submissions</span> processed in beta; <span class="num">200+ users</span> at launch, sub-2s AI response time.</li>
+      <li>Zero-downtime Vercel CI/CD deployment; TypeScript strict mode reduced runtime errors by <span class="num">45%</span>; <b>4.7/5 UX score</b> from 50+ beta testers.</li>
+    </ul>
+  </div>
+
+  <hr class="entry-divider">
+
+  <div class="entry">
+    <div class="entry-top">
+      <span class="entry-title"
+            onclick="window.open('https://github.com/bipinpal9325/Kidlit.ai.git', '_blank')"
+            style="cursor: pointer;"
+            onmouseover="this.style.textDecoration='underline'; this.style.color='#2563eb';"
+            onmouseout="this.style.textDecoration='none'; this.style.color='inherit';">
+        Kidlit.ai — GenAI Children's Story Platform
+      </span>
+      <span class="entry-date">2025 &nbsp;·&nbsp; <a href="https://github.com/bipinpal9325/Kidlit.ai.git" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span>
+    </div>
+    <div class="entry-tech">React.js · Flask · Flask-CORS · GPT-4.1 · GitHub Models API · Framer Motion · REST APIs · Prompt Engineering</div>
+    <ul>
+      <li>Generated <span class="num">500+ unique</span> child-safe stories via GPT-4.1 + <b>prompt engineering</b>; <span class="num">150+ active users</span> in 2 weeks; <span class="num">95% child-safety compliance</span> through output filtering.</li>
+      <li>Flask REST API handling <span class="num">200+ concurrent requests</span> at &lt;3s latency with CORS &amp; rate-limiting; full <b>SDLC</b> from design → production.</li>
+    </ul>
+  </div>
+</div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="sec">
+    <div class="sec-head"><span class="sec-label">Certifications</span><div class="sec-rule"></div></div>
+    <div class="certs-grid">
+      <div class="cert-item">
+  <a href="http://verify.skilljar.com/c/dfk5yfe4jtet" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; cursor: pointer;" onmouseover="this.style.color='#2563eb'; this.style.textDecoration='underline';" onmouseout="this.style.color='inherit'; this.style.textDecoration='none';">
+    <b>Building with the Claude API</b>
+  </a>
+  <span>— Anthropic (Mar 2026)</span>
+</div>
+    <div class="cert-item">
+  <a href="https://www.credly.com/badges/43bdd9ae-71c1-4ef5-a8d6-89e4ddeb94c3/linked_in_profile" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; cursor: pointer;" onmouseover="this.style.color='#2563eb'; this.style.textDecoration='underline';" onmouseout="this.style.color='inherit'; this.style.textDecoration='none';">
+    <b>Machine Learning with Python</b>
+  </a>
+  <span>— IBM (Oct 2025)</span>
+</div>
+     <div class="cert-item">
+  <a href="http://verify.skilljar.com/c/prvk7iv5hsvc" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; cursor: pointer;" onmouseover="this.style.color='#2563eb'; this.style.textDecoration='underline';" onmouseout="this.style.color='inherit'; this.style.textDecoration='none';">
+    <b>Claude with Google Cloud Vertex AI</b>
+  </a>
+  <span>— Anthropic (Mar 2026)</span>
+</div>
+       <div class="cert-item">
+  <a href="https://skillshop.credential.net/c63ca778-52d6-4426-a7a6-7ae335981819#acc.QMCLFS8Z" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; cursor: pointer;" onmouseover="this.style.color='#2563eb'; this.style.textDecoration='underline';" onmouseout="this.style.color='inherit'; this.style.textDecoration='none';">
+    <b>Google Analytics Certification</b>
+  </a>
+  <span>— Google (Mar 2026)</span>
+</div>
+     <div class="cert-item">
+  <a href="http://verify.skilljar.com/c/ayerc4s385rc" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; cursor: pointer;" onmouseover="this.style.color='#2563eb'; this.style.textDecoration='underline';" onmouseout="this.style.color='inherit'; this.style.textDecoration='none';">
+    <b>Claude Code in Action</b>
+  </a>
+  <span>— Anthropic (Mar 2026)</span>
+</div>
+     <div class="cert-item">
+  <a href="https://www.oneroadmap.io/skills/python/certificate/CERT-ED3018BC" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; cursor: pointer;" onmouseover="this.style.color='#2563eb'; this.style.textDecoration='underline';" onmouseout="this.style.color='inherit'; this.style.textDecoration='none';">
+    <b>Python Certification</b>
+  </a>
+  <span>— OneRoadmap (Mar 2026)</span>
+</div>
+     <div class="cert-item">
+  <a href="https://drive.google.com/file/d/1tmGCRO6NWvIpSZaZk0I6Fx9tcWRIvE0W/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; cursor: pointer;" onmouseover="this.style.color='#2563eb'; this.style.textDecoration='underline';" onmouseout="this.style.color='inherit'; this.style.textDecoration='none';">
+    <b>Data Structures &amp; Algorithms</b>
+  </a>
+  <span>— GeeksforGeeks (Mar 2023)</span>
+</div> 
+  </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="sec">
+    <div class="sec-head"><span class="sec-label">Education</span><div class="sec-rule"></div></div>
+
+    <div class="edu-row">
+      <span class="edu-name">B.Tech — Computer Science (AI &amp; Machine Learning)</span>
+      <span class="edu-detail">2022 – 2026</span>
+    </div>
+     <div class="cert-item"><b>United College of Engineering &amp; Research, Prayagraj &nbsp;·&nbsp; CGPA: 7.1 (Sem 7) &nbsp;·&nbsp; <i>Coursework: DSA, Machine Learning, NLP, Database Systems, Cloud Computing, SDLC</b></div>
+    <div style="margin-top:4px;">
+      <div class="edu-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+  <span class="edu-name">(10+2) — R.C Maruti High School &amp; Jr. College, Mumbai</span>
+  <span class="edu-detail">2022</span>
+</div>
+<div class="cert-item" style="display: flex;align-items: center;gap: 215px;">
+  <b>Secondary (10th Grade) — 68%</b> <div class="cert-item"><b>Senior Secondary (12th Grade) — 63%</b></div>
+  
+</div>
+  </div>
+
+</div><!-- /body -->
+</body>
+</html>
